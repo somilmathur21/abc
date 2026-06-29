@@ -275,6 +275,28 @@ html, body {
   margin-bottom: 1.4rem;
   color: var(--white);
 }
+.floating-msg {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+}
+
+.floating-msg.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
 
 .question-image-wrap { margin-bottom: 1.2rem; }
 .question-image {
