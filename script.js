@@ -314,6 +314,9 @@ function buildProgressDots(total) {
     container.appendChild(dot);
   }
 }
+function normalize(text) {
+  return text.toLowerCase().trim();
+}
 
 function updateProgressDots(current) {
   document.querySelectorAll(".progress-dot").forEach((dot, i) => {
