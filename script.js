@@ -237,7 +237,10 @@ function startTypewriter() {
   const output = document.getElementById("typewriter-output");
   const cursor = document.querySelector(".cursor");
 
-  const goBtn = document.getElementById("s3-go");
+  if (!output || !cursor) {
+    console.log("Typewriter elements missing ❌");
+    return;
+  }
 
   output.innerHTML = "";
 
@@ -255,25 +258,38 @@ function startTypewriter() {
 
   lineEls.forEach((el, i) => {
     const text = INTRO_LINES[i];
-    setTimeout(() => el.classList.add("visible"), delay);
+
+    setTimeout(() => {
+      el.classList.add("visible");
+    }, delay);
+
     delay += Math.max(text.length * CHAR_SPEED, LINE_GAP) + LINE_GAP;
   });
 
-  // ✅ SHOW BUTTON + FIX CLICK (THIS IS THE IMPORTANT PART)
+  // ✅ FINAL SAFE BUTTON HANDLING
   setTimeout(() => {
+    const goBtn = document.getElementById("s3-go");
+
     cursor.classList.remove("blink");
+
+    if (!goBtn) {
+      console.log("Button s3-go not found ❌");
+      return;
+    }
 
     goBtn.classList.remove("hidden");
 
-    // 🔥 force reset click to avoid broken/duplicate listeners
-    goBtn.onclick = () => {
+    // 🔥 remove old listeners automatically by cloning (bulletproof fix)
+    const newBtn = goBtn.cloneNode(true);
+    goBtn.parentNode.replaceChild(newBtn, goBtn);
+
+    newBtn.addEventListener("click", () => {
       changeScreen("screen-4");
       loadQuestion(0);
-    };
+    });
 
   }, delay + 300);
 }
-
 /* ================================================================
    SCREEN 4 — Quiz
    ================================================================ */
