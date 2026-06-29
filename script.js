@@ -235,7 +235,12 @@ function changeScreen(id) {
    ================================================================ */
 function startTypewriter() {
   const output = document.getElementById("typewriter-output");
-  const goBtn = document.getElementById("s3-go");
+  const goBtn  = document.getElementById("s3-go");
+
+if (!goBtn) {
+  console.error("s3-go button not found in HTML");
+  return;
+}
 
   output.innerHTML = "";
 
@@ -254,6 +259,10 @@ function startTypewriter() {
   setTimeout(() => {
     if (goBtn) goBtn.classList.remove("hidden");
   }, INTRO_LINES.length * 800 + 500);
+   setTimeout(() => {
+  document.getElementById("s3-go").style.display = "block";
+  document.getElementById("s3-go").classList.remove("hidden");
+}, 3000);
 }
 
 /* ================================================================
