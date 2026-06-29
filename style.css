@@ -186,50 +186,39 @@ html, body {
   display: block;
 }
 /* ── Screen 3 — Typewriter ───────────────────────────────────── */
-.typewriter-card { text-align: left; }
+.typewriter-card {
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
 .typewriter-text {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  min-height: 12rem;
-}
-.glow-cursor {
-  display: inline-block;
-  color: #c084fc;
-  font-size: 1.3rem;
-  animation: blink 1s infinite, glowPulse 1.5s ease-in-out infinite;
-  text-shadow: 0 0 8px rgba(192,132,252,0.8);
+  gap: 0.4rem;
+  min-height: 10rem;
 }
 
-@keyframes glowPulse {
-  0%, 100% {
-    text-shadow: 0 0 6px rgba(192,132,252,0.5);
-  }
-  50% {
-    text-shadow: 0 0 18px rgba(244,114,182,0.9);
-  }
-}
 .tw-line {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.1rem, 3vw, 1.35rem);
-  font-weight: 300;
-  color: var(--soft-white);
+  font-size: 1.2rem;
+  color: white;
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: 0.6s ease;
 }
 
 .tw-line.visible {
   opacity: 1;
   transform: translateY(0);
-  text-shadow: 0 0 12px rgba(192,132,252,0.15);
 }
-.cursor.blink { animation: blink 1s step-end infinite; }
+
+.cursor {
+  color: #c084fc;
+  animation: blink 1s step-end infinite;
+}
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+  50% { opacity: 0; }
 }
 
 /* ── Screen 4 — Quiz ─────────────────────────────────────────── */
