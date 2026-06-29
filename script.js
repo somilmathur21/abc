@@ -56,7 +56,7 @@ const INTRO_LINES = [
   "Yup... 🙃",
   "You read that right.",
   "",
-  "She's my girlfriend. 😲",
+  "She's my girlfriend. ",
   "",
   "Lucky, right? 😌",
 ];
@@ -68,7 +68,7 @@ const INTRO_LINES = [
 const CINEMATIC_LINES = [
   { text: "So it really is you, 😮‍💨",                          delay: 600  },
   { text: "Miss Magnifique ✨",                              delay: 900,  isHeadline: true },
-  { text: "Welcome, and answer a final question for me...", delay: 1400 },
+  { text: "Welcome, and answer a final question for me...", delay: 3400 },
   { text: "Will you go on a date with me mi dona?",         delay: 1600, isHeadline: true },
 ];
 
