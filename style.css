@@ -284,23 +284,37 @@ html, body {
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  background: rgba(0,0,0,0.6);
+  transform: translate(-50%, -50%) scale(0.6);
+  background: rgba(0,0,0,0.75);
   color: white;
   padding: 10px 16px;
-  border-radius: 20px;
+  border-radius: 999px;
   font-size: 14px;
   font-weight: 500;
-  opacity: 0;
+  z-index: 99999;
   pointer-events: none;
-  transition: all 0.4s ease;
-  z-index: 9999;
+  opacity: 0;
   backdrop-filter: blur(10px);
+  animation: floatInOut 2.2s ease forwards;
 }
 
-.floating-msg.show {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+@keyframes floatInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%) scale(0.6);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -60%) scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -80%) scale(0.9);
+  }
 }
 
 .question-image-wrap { margin-bottom: 1.2rem; }
