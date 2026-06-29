@@ -379,6 +379,7 @@ function loadQuestion(index) {
 
     if (isCorrect(raw, accepted)) {
       playCorrectSound();
+       spawnFloatingMessage(q.correctMsg);
       card.classList.add("correct-glow");
       feedback.classList.add("hidden");
       setTimeout(() => {
