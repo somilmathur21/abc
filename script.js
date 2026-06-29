@@ -235,50 +235,21 @@ function changeScreen(id) {
    ================================================================ */
 function startTypewriter() {
   const output = document.getElementById("typewriter-output");
-  const cursor = document.querySelector(".cursor");
-  const goBtn  = document.getElementById("s3-go");
+  if (!output) return;
 
   output.innerHTML = "";
 
-  let i = 0;
-  let lineIndex = 0;
+  INTRO_LINES.forEach((line, i) => {
+    const el = document.createElement("div");
+    el.className = "tw-line";
+    el.textContent = line || " ";
 
-  function typeLine() {
-    if (lineIndex >= INTRO_LINES.length) {
-      cursor.classList.remove("blink");
-      goBtn.classList.remove("hidden");
-      return;
-    }
+    output.appendChild(el);
 
-    const line = INTRO_LINES[lineIndex];
-
-    const span = document.createElement("span");
-    span.className = "tw-line";
-    output.appendChild(span);
-
-    let charIndex = 0;
-
-    function typeChar() {
-      span.textContent = line.substring(0, charIndex);
-
-      if (charIndex < line.length) {
-        charIndex++;
-        setTimeout(typeChar, 35); // smooth typing speed
-      } else {
-        lineIndex++;
-        setTimeout(typeLine, 500); // pause between lines
-      }
-    }
-
-    typeChar();
-  }
-
-  typeLine();
-
-  document.getElementById("s3-go").addEventListener("click", () => {
-    changeScreen("screen-4");
-    loadQuestion(0);
-  }, { once: true });
+    setTimeout(() => {
+      el.classList.add("visible");
+    }, i * 800);
+  });
 }
 
 /* ================================================================
