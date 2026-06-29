@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You 💜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Star canvas (always behind everything) -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 1 — Welcome
+  ══════════════════════════════════════════════ -->
+  <section id="screen-1" class="screen active">
+    <div class="card glass">
+      <p class="eyebrow">a small something</p>
+      <h1 class="headline">Hey, is that you?</h1>
+      <p class="subtext">The one I've been thinking about… 🙃</p>
+      <div class="btn-row">
+        <button id="s1-yes" class="btn btn-primary">Yes, it's me 💜</button>
+        <button id="s1-no"  class="btn btn-ghost">No</button>
+      </div>
+      <div id="s1-toast" class="toast hidden">Liar 🫠 I know it's you.</div>
+      <button id="s1-retry" class="btn btn-ghost small hidden" style="margin-top:0.5rem">Okay, fine…</button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 2 — Identity check (photo)
+  ══════════════════════════════════════════════ -->
+  <section id="screen-2" class="screen">
+    <div class="card glass">
+      <p class="eyebrow">wait, let me check</p>
+      <!-- Replace src with her actual photo -->
+      <div class="photo-frame">
+        <img
+          src="https://i.pinimg.com/736x/20/ec/d9/20ecd94bd61e28b09b7af5a15f135b8e.jpg"
+          alt="That special person"
+          class="identity-photo"
+        />
+      </div>
+      <h2 class="headline">Is this you? 😲</h2>
+      <div id="s2-toast" class="toast hidden">Then who are you?! Shoo! 😤</div>
+      <div class="btn-row">
+        <button id="s2-yes" class="btn btn-primary">Yes, that's me!</button>
+        <button id="s2-no"  class="btn btn-ghost">Not me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 3 — Typewriter intro
+  ══════════════════════════════════════════════ -->
+  <section id="screen-3" class="screen">
+    <div class="card glass typewriter-card">
+      <div id="typewriter-output" class="typewriter-output"></div>
+      <span class="cursor blink">|</span>
+      <button id="s3-go" class="btn btn-primary hidden" style="margin-top:2rem">
+        I'm ready ✨
+      </button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 4 — Quiz
+  ══════════════════════════════════════════════ -->
+  <section id="screen-4" class="screen">
+    <div id="quiz-card" class="card glass quiz-card">
+      <div id="quiz-progress-dots" class="progress-dots"></div>
+      <div id="quiz-body">
+        <div id="loading-memory" class="loading-memory hidden">
+          <span class="dot-pulse"></span> retrieving memory…
+        </div>
+        <p id="question-text" class="question-text"></p>
+        <div id="question-image-wrap" class="question-image-wrap hidden">
+          <img id="question-image" src="" alt="" class="question-image" />
+        </div>
+        <input
+          id="quiz-input"
+          type="text"
+          class="quiz-input"
+          placeholder="Your answer…"
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+        />
+        <div id="quiz-feedback" class="quiz-feedback hidden">
+          Hmm, that doesn't sound right… try again 💭
+        </div>
+        <button id="quiz-submit" class="btn btn-primary">Submit →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 5 — Cinematic reveal + date question
+  ══════════════════════════════════════════════ -->
+  <section id="screen-5" class="screen">
+    <div class="card glass cinematic-card">
+      <div id="cinematic-text" class="cinematic-text"></div>
+      <div id="date-question" class="date-question hidden">
+        <div class="btn-row centered">
+          <button id="final-yes" class="btn btn-primary large">Yes, absolutely! 💜</button>
+          <button id="final-no"  class="btn btn-ghost  large">No</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SCREEN 6 — Celebration
+  ══════════════════════════════════════════════ -->
+  <section id="screen-6" class="screen">
+    <div class="card glass celebration-card">
+      <div class="heart-burst">💜</div>
+      <p class="reveal-line" data-delay="400">I knew it.</p>
+      <h2 class="reveal-line headline-celebrate" data-delay="900">
+        It's a date. 🌙
+      </h2>
+      <p class="reveal-line soft" data-delay="1500">
+        Thank you for existing, mi dona. 😮‍💨
+      </p>
+      <p class="reveal-line soft" data-delay="2200">
+        — Somil 💌
+      </p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
