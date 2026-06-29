@@ -376,6 +376,15 @@ function loadQuestion(index) {
     const raw      = input.value;
     const q        = QUIZ_QUESTIONS[currentQuestion];
     const accepted = q.answers;
+     function spawnFloatingMessage(text) {
+  const msg = document.createElement("div");
+  msg.className = "floating-msg";
+  msg.textContent = text;
+
+  document.body.appendChild(msg);
+
+  setTimeout(() => msg.remove(), 2200);
+}
 
     if (isCorrect(raw, accepted)) {
       playCorrectSound();
