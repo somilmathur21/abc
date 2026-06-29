@@ -223,6 +223,7 @@ html, body {
 .tw-line.visible {
   opacity: 1;
   transform: translateY(0);
+  text-shadow: 0 0 12px rgba(192,132,252,0.15);
 }
 .cursor.blink { animation: blink 1s step-end infinite; }
 
