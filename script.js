@@ -20,17 +20,22 @@
 const QUIZ_QUESTIONS = [
   {
     question: "What does Somil say to start a conversation? 🫠",
-    answers: ["heyyo"],
+    answers: ["heyyo", "Heyyo"],
     wrongMsg: "nuh uh, think again 🫠",
   },
   {
     question: "What does Pragya usually reply with? 🙃",
-    answers: ["hoi"],
+    answers: ["hoi", "Hoi"],
     wrongMsg: "c'mon you know this 🙃",
+  },
+   {
+    question: "What's the answer to wots up",
+    answers: ["sky"],
+    wrongMsg: "nope! you definitely know this one 😮‍💨",
   },
   {
     question: "What time did Somil stupidly gather the courage to confess? 😲",
-    answers: ["5:30am", "5:30 am", "5 30 am", "5:30", "530"],
+    answers: ["5:30am", "5:30 am", "5 30 am", "5:30", "530", "5", "5 30", "5 am"],
     wrongMsg: "that's not it… dig deeper 😲",
   },
   {
