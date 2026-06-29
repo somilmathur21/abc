@@ -21,31 +21,37 @@ const QUIZ_QUESTIONS = [
   {
     question: "What does Somil say to start a conversation? 🫠",
     answers: ["heyyo", "Heyyo"],
+    correctMsg: "Perfect word right mixture of hey and yo😂",
     wrongMsg: "nuh uh, think again 🫠",
   },
   {
     question: "What does Pragya usually reply with? 🙃",
     answers: ["hoi", "Hoi"],
+    correctMsg: "Sweet and simple unlike your spontaneous personality (which i adore btw)",
     wrongMsg: "c'mon you know this 🙃",
   },
-   {
+  {
     question: "What's the answer to wots up",
-    answers: ["sky"],
+    answers: ["sky", "Sky"],
+    correctMsg: "Duh of course (Artemis 2 worked on that day tho)",
     wrongMsg: "nope! you definitely know this one 😮‍💨",
   },
   {
     question: "What time did Somil stupidly gather the courage to confess? 😲",
     answers: ["5:30am", "5:30 am", "5 30 am", "5:30", "530", "5", "5 30", "5 am"],
+    correctMsg: "I don't regret it now at all but how i didn't get murdered is still a mystery 👽",
     wrongMsg: "that's not it… dig deeper 😲",
   },
   {
     question: "What date did we make it official? 😮‍💨",
     answers: ["10 april", "10th april", "april 10", "10/04", "10 apr", "apr 10", "10apr", "10th apr"],
+    correctMsg: "I'm still sorry that i didn't say anything that day but trust me ill get you 10 DM Oreos to make up for it🤌",
     wrongMsg: "nope! you definitely know this one 😮‍💨",
   },
   {
     question: "What was my nickname in school?",
-    answers: ["traitor"],
+    answers: ["traitor", "Traitor"],
+    correctMsg: "Still don't get what i did to be called that🥷",
     wrongMsg: "really?? you of all people should remember 🫠",
   },
 ];
