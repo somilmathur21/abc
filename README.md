@@ -1,4 +1,4 @@
-# Romantic Website — For Pragya
+# Website
 
 A personal, cinematic single-page experience built with pure vanilla HTML, CSS, and JavaScript. No frameworks, no build step.
 
