@@ -240,28 +240,40 @@ function startTypewriter() {
 
   output.innerHTML = "";
 
-  const lineEls = INTRO_LINES.map((text) => {
-    const el = document.createElement("span");
-    el.className = "tw-line";
-    el.textContent = text === "" ? " " : text;
-    output.appendChild(el);
-    return el;
-  });
+  let i = 0;
+  let lineIndex = 0;
 
-  let delay = 500;
-  const CHAR_SPEED = 55;
-  const LINE_GAP   = 380;
+  function typeLine() {
+    if (lineIndex >= INTRO_LINES.length) {
+      cursor.classList.remove("blink");
+      goBtn.classList.remove("hidden");
+      return;
+    }
 
-  lineEls.forEach((el, i) => {
-    const text = INTRO_LINES[i];
-    setTimeout(() => el.classList.add("visible"), delay);
-    delay += Math.max(text.length * CHAR_SPEED, LINE_GAP) + LINE_GAP;
-  });
+    const line = INTRO_LINES[lineIndex];
 
-  setTimeout(() => {
-    cursor.classList.remove("blink");
-    goBtn.classList.remove("hidden");
-  }, delay + 300);
+    const span = document.createElement("span");
+    span.className = "tw-line";
+    output.appendChild(span);
+
+    let charIndex = 0;
+
+    function typeChar() {
+      span.textContent = line.substring(0, charIndex);
+
+      if (charIndex < line.length) {
+        charIndex++;
+        setTimeout(typeChar, 35); // smooth typing speed
+      } else {
+        lineIndex++;
+        setTimeout(typeLine, 500); // pause between lines
+      }
+    }
+
+    typeChar();
+  }
+
+  typeLine();
 
   document.getElementById("s3-go").addEventListener("click", () => {
     changeScreen("screen-4");
