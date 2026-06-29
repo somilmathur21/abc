@@ -188,7 +188,7 @@ html, body {
 /* ── Screen 3 — Typewriter ───────────────────────────────────── */
 .typewriter-card { text-align: left; }
 
-.typewriter-output {
+.typewriter-text {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
