@@ -235,7 +235,7 @@ function changeScreen(id) {
    ================================================================ */
 function startTypewriter() {
   const output = document.getElementById("typewriter-output");
-  if (!output) return;
+  const goBtn = document.getElementById("s3-go");
 
   output.innerHTML = "";
 
@@ -243,13 +243,17 @@ function startTypewriter() {
     const el = document.createElement("div");
     el.className = "tw-line";
     el.textContent = line || " ";
-
     output.appendChild(el);
 
     setTimeout(() => {
       el.classList.add("visible");
     }, i * 800);
   });
+
+  // SHOW BUTTON AFTER LAST LINE
+  setTimeout(() => {
+    if (goBtn) goBtn.classList.remove("hidden");
+  }, INTRO_LINES.length * 800 + 500);
 }
 
 /* ================================================================
