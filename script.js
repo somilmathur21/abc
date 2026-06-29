@@ -101,7 +101,7 @@ function normalize(text) {
 }
 
 function isCorrect(input, acceptedAnswers) {
-  const n = normalize(input);
+  const n = normalize(input); 
   return acceptedAnswers.some((a) => normalize(a) === n);
 }
 
