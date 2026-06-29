@@ -235,34 +235,43 @@ function changeScreen(id) {
    ================================================================ */
 function startTypewriter() {
   const output = document.getElementById("typewriter-output");
-  const goBtn  = document.getElementById("s3-go");
+  const cursor = document.querySelector(".cursor");
 
-if (!goBtn) {
-  console.error("s3-go button not found in HTML");
-  return;
-}
+  const goBtn = document.getElementById("s3-go");
 
   output.innerHTML = "";
 
-  INTRO_LINES.forEach((line, i) => {
-    const el = document.createElement("div");
+  const lineEls = INTRO_LINES.map((text) => {
+    const el = document.createElement("span");
     el.className = "tw-line";
-    el.textContent = line || " ";
+    el.textContent = text === "" ? "\u00A0" : text;
     output.appendChild(el);
-
-    setTimeout(() => {
-      el.classList.add("visible");
-    }, i * 800);
+    return el;
   });
 
-  // SHOW BUTTON AFTER LAST LINE
+  let delay = 500;
+  const CHAR_SPEED = 55;
+  const LINE_GAP = 380;
+
+  lineEls.forEach((el, i) => {
+    const text = INTRO_LINES[i];
+    setTimeout(() => el.classList.add("visible"), delay);
+    delay += Math.max(text.length * CHAR_SPEED, LINE_GAP) + LINE_GAP;
+  });
+
+  // ✅ SHOW BUTTON + FIX CLICK (THIS IS THE IMPORTANT PART)
   setTimeout(() => {
-    if (goBtn) goBtn.classList.remove("hidden");
-  }, INTRO_LINES.length * 800 + 500);
-   setTimeout(() => {
-  document.getElementById("s3-go").style.display = "block";
-  document.getElementById("s3-go").classList.remove("hidden");
-}, 3000);
+    cursor.classList.remove("blink");
+
+    goBtn.classList.remove("hidden");
+
+    // 🔥 force reset click to avoid broken/duplicate listeners
+    goBtn.onclick = () => {
+      changeScreen("screen-4");
+      loadQuestion(0);
+    };
+
+  }, delay + 300);
 }
 
 /* ================================================================
